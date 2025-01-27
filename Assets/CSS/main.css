@@ -1,0 +1,19 @@
+body {
+    margin:0;
+    padding:0;
+    height: 100vh;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.halfimage {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}

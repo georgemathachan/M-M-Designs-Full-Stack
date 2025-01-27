@@ -1,0 +1,1 @@
+//handling product page interactions (image zoom, variations)
