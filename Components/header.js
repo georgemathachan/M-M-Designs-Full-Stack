@@ -1,13 +1,24 @@
 const searchButton = document.getElementById('searchButton');
 const closeSearch = document.getElementById('closeSearch');
-const navbar = document.getElementById('navbar');
+const nav = document.querySelector('.nav');  // Use '.nav' here, as this is the correct class
 const searchBar = document.getElementById('searchBar');
 
 searchButton.addEventListener('click', () => {
-    navbar.classList.add('search-active');
+    nav.classList.add('search-active');
     searchBar.querySelector('input').focus();
 });
 
 closeSearch.addEventListener('click', () => {
-    navbar.classList.remove('search-active');
+    nav.classList.remove('search-active');
+});
+
+// Add scroll event listener
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+        nav.classList.add('scrolled');
+        nav_buttons.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');  // Remove the 'scrolled' class when at the top
+        nav-buttons.classList.remove('scrolled');
+    }
 });

@@ -13,9 +13,16 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 255, 0.5);
     background-color: var(--transparent-bg);
     transition: all 0.3s ease-in-out;
+}
+
+.nav.scrolled {
+    background-color: white;
+}
+
+.nav-buttons.scrolled {
+    color: white
 }
 
 a {
@@ -32,8 +39,6 @@ a:visited {
     width: 50px;
     object-fit: cover;
 }
-
-
 
 .nav-buttons {
     display: flex;
