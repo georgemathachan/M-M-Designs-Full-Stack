@@ -1,18 +1,133 @@
-body {
-    margin:0;
-    padding:0;
-    height: 100vh;
-}
-
-.image-container {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+/* Navbar Styling */
+header {
+    background: #111;
+    padding: 15px 0;
+    position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.halfimage {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+    }
+}
+
+/* Color Scheme */
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --accent-color: #ccc;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('path-to-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-item h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+.product-item .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    border-top: 1px solid var(--accent-color);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666;
 }

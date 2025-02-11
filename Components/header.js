@@ -1,3 +1,4 @@
+/*
 const searchButton = document.getElementById('searchButton');
 const closeSearch = document.getElementById('closeSearch');
 const nav = document.querySelector('.nav');  // Use '.nav' here, as this is the correct class
@@ -22,3 +23,4 @@ window.addEventListener('scroll', function () {
         nav-buttons.classList.remove('scrolled');
     }
 });
+*/

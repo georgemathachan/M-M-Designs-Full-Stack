@@ -1,84 +1,61 @@
-<!--Landing page content(banners, feat. products, nav)-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar</title>
-    <link
-      rel="stylesheet"
-      href="/M-M-Designs-Full-Stack/Assets/CSS/navbar.css"
-    />
-    <link rel="stylesheet" href="/M-M-Designs-Full-Stack/Assets/CSS/main.css" />
-    <link
-      rel="stylesheet"
-      href="/M-M-Designs-Full-Stack/Assets/CSS/footer.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <title>Mockup Homepage</title>
+    <link rel="stylesheet" href="../Assets/CSS/main.css" />
   </head>
   <body>
+    <!-- Header -->
     <header>
-      <nav class="nav">
-        <img
-          src="/M-M-Designs-Full-Stack/Assets/Images/logo.png"
-          alt="Logo"
-          class="logo"
-        />
-        <div class="nav-buttons" id="navButtons">
-          <button class="underline-button">
-            <a href="./women.html">WOMEN</a>
-          </button>
-          <button class="underline-button"><a href="./men.html">MEN</a></button>
-          <button class="underline-button">
-            <a href="./kids.html">KIDS</a>
-          </button>
-          <button>
-            <a href="./basket.html" aria-label="View Basket"
-              ><i class="fas fa-shopping-basket"></i
-            ></a>
-          </button>
-          <button>
-            <a href="./profile.html" aria-label="View Profile"
-              ><i class="fas fa-user"></i
-            ></a>
-          </button>
-          <button id="searchButton"><i class="fas fa-search"></i></button>
+      <nav>
+        <div id="Nav-logo">
+          <img src="../Assets/Images/Logo.png" alt="Logo" />
         </div>
-        <div class="search-bar" id="searchBar">
-          <input type="text" placeholder="Search..." />
-          <button id="closeSearch"><i class="fas fa-times"></i></button>
+        <div id="Nav-buttons">
+          <ul>
+            <li><a href="index.html">MEN</a></li>
+            <li><a href="about.html">WOMEN</a></li>
+            <li><a href="products.html">KIDS</a></li>
+            <li><a href="contact.html">BASKET</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+          </ul>
         </div>
       </nav>
     </header>
-    <main>
-      <div class="image-container">
-        <img
-          src="/M-M-Designs-Full-Stack/Assets/Images/home-w.png"
-          alt="Women main image"
-          class="halfimage"
-        />
-        <img
-          src="/M-M-Designs-Full-Stack/Assets/Images/home-wz.png"
-          alt="Women zoomed image"
-          class="halfimage"
-        />
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to Our Store</h1>
+      <p>Discover premium products designed just for you.</p>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="product-grid">
+      <div class="product-item">
+        <img src="product1.jpg" alt="Product 1" />
+        <h2>Product 1</h2>
+        <p>Amazing features and top quality.</p>
+        <p class="price">$99.99</p>
       </div>
-      <div class="image-container">
-        <img
-          src="/M-M-Designs-Full-Stack/Assets/Images/home-m.png"
-          alt="Women main image"
-          class="halfimage"
-        />
-        <img
-          src="/M-M-Designs-Full-Stack/Assets/Images/home-mz.png"
-          alt="Women zoomed image"
-          class="halfimage"
-        />
+      <div class="product-item">
+        <img src="product2.jpg" alt="Product 2" />
+        <h2>Product 2</h2>
+        <p>Designed for performance and style.</p>
+        <p class="price">$149.99</p>
       </div>
-    </main>
-    <script src="/M-M-Designs-Full-Stack/Components/header.js"></script>
+      <div class="product-item">
+        <img src="product3.jpg" alt="Product 3" />
+        <h2>Product 3</h2>
+        <p>Experience the best in class.</p>
+        <p class="price">$199.99</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
   </body>
 </html>
