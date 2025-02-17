@@ -1,113 +1,110 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+/* Navbar Styling */
+header {
+    background: #111;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 0 20px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: var(--transparent-bg);
-    transition: all 0.3s ease-in-out;
+    align-items: center;
+    width: 100%;
 }
 
-.nav.scrolled {
-    background-color: white;
+.navlogo img {
+    height: 40px;
+    width: auto;
 }
 
-.nav-buttons.scrolled {
-    color: white
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:visited {
-    color: inherit;
-}
-
-.logo {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-}
-
-.nav-buttons {
+/* Ensure nav items align in a row */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 10px;
-    flex-grow: 1;
-    justify-content: center;
+    gap: 30px;
 }
 
-nav button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 8px 12px;
+nav ul li {
+    display: inline-block;
     position: relative;
-    overflow: hidden;
 }
 
-nav button::after {
-    content: '';
-    display: block;
+/* Styling for nav links */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Underline effect starting from the center */
+nav ul li a::after {
+    content: "";
     position: absolute;
-    bottom: 0;
     left: 50%;
-    width: 0;
+    bottom: -3px;
+    width: 0%;
     height: 2px;
-    background: #000;
-    transition: width 0.3s ease-in-out;
+    background-color: #ffcc00;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     transform: translateX(-50%);
 }
 
-nav button:hover::after {
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Expand underline from center */
+nav ul li a:hover::after {
     width: 100%;
+    left: 50%;
 }
 
-.nav-buttons i {
-    font-size: 20px;
+/* Navbar Scroll Effect */
+.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar {
-    display: none;
-    flex-grow: 1;
-    align-items: center;
-    margin-left: 10px;
-    transition: width 1s ease-in-out;
+.scrolled .nav-buttons a {
+    color: black;
 }
 
-.search-bar input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    outline: none;
+/* Icon Styling */
+nav ul li a i {
+    font-size: 22px;
+    color: white;
+    transition: color 0.3s ease-in-out;
 }
 
-#closeSearch {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    margin-left: 10px;
+/* Icon Hover Effect */
+nav ul li a:hover i {
+    color: #ffcc00;
 }
 
-.search-active .nav-buttons,
-.search-active #searchButton {
-    display: none;
-}
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.search-active .search-bar {
-    display: flex;
-    width: 100%;
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }

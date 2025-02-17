@@ -1,1 +1,48 @@
 <!--Individual product details such as images, description, pricing, add to cart button-->>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="men.html">Men</a></li>
+      <li><a href="women.html">Women</a></li>
+      <li><a href="kids.html">Kids</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Product Section -->
+  <section id="product-section">
+    <h1>Product Page</h1>
+
+    <div class="category-links">
+      <a href="productpage.html?category=men" class="category-link">Men</a>
+      <a href="productpage.html?category=women" class="category-link">Women</a>
+      <a href="productpage.html?category=kids" class="category-link">Kids</a>
+    </div>
+
+    <!-- Dynamic Products Section (to be filled dynamically) -->
+    <div id="product-display" class="product-display">
+      <!-- Example of a product display -->
+      <!-- This will be populated dynamically using JavaScript -->
+      <div class="product-card">
+        <img src="product1.jpg" alt="Product 1" class="product-image">
+        <h2 class="product-name">Product 1</h2>
+        <p class="product-price">$29.99</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <!-- Repeat similar structure for other products -->
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
