@@ -78,7 +78,7 @@ body {
     margin-left: 50px; /* Moves buttons to the right */
 }
 
-.hero button {
+button {
     background-color: transparent;
     border: none;
     padding: 15px 30px;
@@ -91,22 +91,22 @@ body {
     width: auto; /* Ensures buttons don't stretch too much */
 }
 
-.hero .button-collection {
+.button-dark {
     background-color: #333333; /* Charcoal Grey */
     color: #fff;
 }
 
-.hero .button-shop {
+.button-light {
     background-color: #f5f5f5; /* Oyster White */
     color: #333;
 }
 
 /* Button hover effects */
-.hero .button-collection:hover {
+.button-dark:hover {
     background-color: #2e2e2e; /* Slate Grey */
 }
 
-.hero .button-shop:hover {
+.button-light:hover {
     background-color: #d7cfc2; /* Natural Weave Beige */
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 /* Ensure buttons are inline and sharp-cornered */
-.hero .buttons button a {
+.buttons button a {
     color: inherit; /* Inherit button text color */
     text-decoration: none; /* Remove underlines */
     display: block; /* Make anchor take up full space of button */
@@ -143,7 +143,7 @@ body {
     flex-wrap: nowrap; /* Prevent items from wrapping */
     justify-content: flex-start;
     gap: 20px;
-    padding: 50px 5%;
+    padding: 0px 5%;
     background-color: var(--accent-color);
     overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
     -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
@@ -151,38 +151,44 @@ body {
 
 .category {
     position: relative;
-    flex: 1 1 calc(33% - 40px); /* Ensures items are side by side by default */
+    flex: 0 0 calc(33% - 40px);
+    height: 100%;
     min-height: 400px;
+    max-height: 400px;
+    width: 100%;
     color: var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    padding: 30px;
+    text-align: left;
+    margin: 10px;
+    padding-bottom: 50px;
     border-radius: 10px;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .category img {
+    padding-top: 0px;
+    padding-bottom: 0px;
     max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    height: 100%;
+    margin-bottom: 5px;
+    object-fit: cover; /* Crops the image to fit the container while preserving its aspect ratio */
+    object-position: top; /* Ensures the image stays centered */
+    transition: transform 1s ease;
 }
 
-.category h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+
+.category img:hover {
+    transform: scale(1.1); /* Zooms in the image */
 }
+
 
 .category p {
-    font-size: 1.2rem;
+    padding-top: 5px;
+    font-size: 0.7rem;
     margin-bottom: 20px;
 }
 
