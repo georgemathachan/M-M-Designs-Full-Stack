@@ -60,34 +60,37 @@ body {
     font-size: 2.5em;
     font-weight: 50;
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 .hero p {
     font-size: 1.2em;
     max-width: 600px;
     z-index: 2;
+    margin-left: 30px;
 }
 
 /* Button Styles */
+.hero .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Adds space between the text and buttons */
+    margin-left: 50px; /* Moves buttons to the right */
+}
+
 .hero button {
     background-color: transparent;
     border: none;
     padding: 15px 30px;
-    margin-right: 20px;
     font-size: 1em;
     font-weight: bold;
-    border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
-    z-index: 2;
+    display: inline-block; /* Ensures the button's content is treated like a block element */
+    text-align: center;
+    width: auto; /* Ensures buttons don't stretch too much */
 }
 
-.hero button a {
-    color: inherit; /* Ensures the text color matches button color */
-    text-decoration: none;
-}
-
-/* Specific button colors */
 .hero .button-collection {
     background-color: #333333; /* Charcoal Grey */
     color: #fff;
@@ -107,17 +110,19 @@ body {
     background-color: #d7cfc2; /* Natural Weave Beige */
 }
 
-/* Flexbox layout for buttons */
-.hero .buttons {
-    display: flex;
-    align-items: center;
-    margin-top: 20px; /* Adds some space between the text and buttons */
+/* Adding a little space between the buttons */
+.hero .buttons button + button {
+    margin-left: 20px; /* Space between the buttons */
 }
 
-.hero .buttons button {
-    margin: 0 10px; /* Space between buttons */
+/* Ensure buttons are inline and sharp-cornered */
+.hero .buttons button a {
+    color: inherit; /* Inherit button text color */
+    text-decoration: none; /* Remove underlines */
+    display: block; /* Make anchor take up full space of button */
+    width: 100%; /* Ensure anchor fills button */
+    height: 100%; /* Ensure anchor fills button */
 }
-
 
 
 /* Product Grid */

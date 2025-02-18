@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0); /* Adjusted opacity to make the navbar more transparent */
+    background: transparent; /* Adjusted opacity to make the navbar more transparent */
     z-index: 10;
     position: fixed; /* Keeps the navbar fixed on top */
     top: 0;
@@ -35,7 +35,11 @@ nav ul li {
 a {
     font-weight: 50;
     text-decoration: none;
-    color: white;
+    color: black;
+}
+
+nav ul li a img {
+    color: black
 }
 
 .container {
@@ -43,4 +47,14 @@ a {
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    fill: black; /* Change color */
+}
+
+.icon:hover {
+    fill: red; /* Change color on hover */
 }
