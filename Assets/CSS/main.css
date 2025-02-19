@@ -144,7 +144,7 @@ button {
     justify-content: flex-start;
     gap: 20px;
     padding: 0px 5%;
-    background-color: var(--accent-color);
+    background-color: white;
     overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
     -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
 }
