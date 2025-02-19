@@ -1,246 +1,340 @@
 /* Color Variables */
 :root {
-    --primary-color: #000; /* Black for text */
-    --background-color: #fff; /* White background */
-    --accent-color: #f4f4f4; /* Light gray for accents */
-    --transparent: transparent;
-}
+    --primary-color: #36454F; /* Charcoal Grey - Main text, headers, buttons */
+    --secondary-color: #708090; /* Slate Grey - Subheadings, background elements */
+    --background-color: #F0EAD6; /* Oyster White - Main background */
+    --accent-color: #D3B8AE; /* Natural Weave Beige - Hover effects, accents */
+    --highlight-color: #B2AC88; /* Sage Green - Call-to-action buttons, links */
+    --soft-background: #E8E3D9; /* Pearl Herringbone - Light background contrast */
+    --neutral-white: #FFFFFF; /* White - For readability and balance */
+    --neutral-black: #000000; /* Black - For strong contrast */
+  }
 
 /* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  line-height: 1.6;
 }
+
 
 /* Hero Section */
 .hero {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Aligns content to the bottom */
-    align-items: flex-start; /* Aligns content to the left */
-    text-align: left;
-    color: var(--primary-color);
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 50px; /* Adds space for buttons */
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom */
+  align-items: flex-start; /* Aligns content to the left */
+  text-align: left;
+  color: var(--primary-color);
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 50px; /* Adds space for buttons */
 }
 
 .hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero h1,
+.hero p {
+  position: absolute;
+  bottom: 100px; /* Moves the text higher to leave space for buttons */
+  left: 20px; /* Moves the text to the left */
+  margin: 0;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  font-weight: 50;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 600px;
+  z-index: 2;
+  margin-left: 30px;
+}
+
+
+
+
+/* Button Styles */
+.hero .buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Adds space between the text and buttons */
+  margin-left: 50px; /* Moves buttons to the right */
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-block; /* Ensures the button's content is treated like a block element */
+  text-align: center;
+  width: auto; /* Ensures buttons don't stretch too much */
+}
+
+.button-dark {
+  background-color: #333333; /* Charcoal Grey */
+  color: #fff;
+}
+
+.button-light {
+  background-color: #f5f5f5; /* Oyster White */
+  color: #333;
+}
+
+/* Button hover effects */
+.button-dark:hover {
+  background-color: #2e2e2e; /* Slate Grey */
+}
+
+.button-light:hover {
+  background-color: #d7cfc2; /* Natural Weave Beige */
+}
+
+/* Adding a little space between the buttons */
+.hero .buttons button + button {
+  margin-left: 20px; /* Space between the buttons */
+}
+
+/* Ensure buttons are inline and sharp-cornered */
+.buttons button a {
+  color: inherit; /* Inherit button text color */
+  text-decoration: none; /* Remove underlines */
+  display: block; /* Make anchor take up full space of button */
+  width: 100%; /* Ensure anchor fills button */
+  height: 100%; /* Ensure anchor fills button */
+}
+
+
+
+
+.content-break {
+  padding: 25px;
+  text-align: center; /* Centers text horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  color: #b2ac88;
+}
+
+
+
+/* Slideshow Container */
+.slideshow-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    background-color: var(--background-color);
+}
+
+/* Individual Slide */
+.slide {
+    flex: 0 0 auto;
+    width: 300px;
+    height: auto;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center; /* Centers text below */
+    position: relative;
+}
+
+/* Image Container (for overlay effect) */
+.image-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Image Styling */
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Grey Overlay on Hover */
+.image-container::after {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    background: rgba(0, 0, 0, 0.1); /* Subtle grey overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
 }
 
-.hero h1,
-.hero p {
-    position: absolute;
-    bottom: 100px; /* Moves the text higher to leave space for buttons */
-    left: 20px; /* Moves the text to the left */
-    margin: 0;
-    z-index: 2;
+.image-container:hover::after {
+    opacity: 1;
 }
 
-.hero h1 {
-    font-size: 2.5em;
-    font-weight: 50;
-    margin-bottom: 20px;
-    margin-left: 30px;
+/* Product Info Below the Image */
+.product-info {
+    margin-top: 10px; /* Space between image and text */
+    font-size: 0.9rem;
+    color: var(--primary-color);
 }
 
-.hero p {
-    font-size: 1.2em;
-    max-width: 600px;
-    z-index: 2;
-    margin-left: 30px;
+/* Title Styling */
+.product-title {
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight for a clean look */
+    text-transform: none;
 }
 
-/* Button Styles */
-.hero .buttons {
-    display: flex;
-    align-items: center;
-    margin-top: 20px; /* Adds space between the text and buttons */
-    margin-left: 50px; /* Moves buttons to the right */
+/* Price Styling */
+.product-price {
+    font-size: 0.9rem;
+    color: #666; /* Subtle dark gray */
+    font-weight: 400;
 }
 
-button {
-    background-color: transparent;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: inline-block; /* Ensures the button's content is treated like a block element */
-    text-align: center;
-    width: auto; /* Ensures buttons don't stretch too much */
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .slide {
+        width: 250px;
+    }
+
+    .product-title {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 0.8rem;
+    }
 }
 
-.button-dark {
-    background-color: #333333; /* Charcoal Grey */
-    color: #fff;
-}
 
-.button-light {
-    background-color: #f5f5f5; /* Oyster White */
-    color: #333;
-}
 
-/* Button hover effects */
-.button-dark:hover {
-    background-color: #2e2e2e; /* Slate Grey */
-}
 
-.button-light:hover {
-    background-color: #d7cfc2; /* Natural Weave Beige */
-}
-
-/* Adding a little space between the buttons */
-.hero .buttons button + button {
-    margin-left: 20px; /* Space between the buttons */
-}
-
-/* Ensure buttons are inline and sharp-cornered */
-.buttons button a {
-    color: inherit; /* Inherit button text color */
-    text-decoration: none; /* Remove underlines */
-    display: block; /* Make anchor take up full space of button */
-    width: 100%; /* Ensure anchor fills button */
-    height: 100%; /* Ensure anchor fills button */
-}
-
-.content-break {
-    padding: 25px;
-    text-align: center; /* Centers text horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
-    color: #B2AC88;
-}
 
 
 
 
 /* Categories Section */
 .categories {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent items from wrapping */
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 0px 5%;
-    background-color: white;
-    overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
-    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+  display: flex;
+  flex-wrap: nowrap; /* Prevent items from wrapping */
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 0px 5%;
+  background-color: white;
+  overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
 }
 
 .category {
-    position: relative;
-    flex: 0 0 calc(33% - 40px);
-    height: 100%;
-    min-height: 400px;
-    max-height: 400px;
-    width: 100%;
-    color: var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    margin: 10px;
-    padding-bottom: 50px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+  position: relative;
+  flex: 0 0 calc(33% - 40px);
+  height: 100%;
+  min-height: 400px;
+  max-height: 400px;
+  width: 100%;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  margin: 10px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
 
 .category img {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    max-width: 100%;
-    height: 100%;
-    margin-bottom: 5px;
-    object-fit: cover; /* Crops the image to fit the container while preserving its aspect ratio */
-    object-position: top; /* Ensures the image stays centered */
-    transition: transform 1s ease;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  max-width: 100%;
+  height: 100%;
+  margin-bottom: 5px;
+  object-fit: cover; /* Crops the image to fit the container while preserving its aspect ratio */
+  object-position: top; /* Ensures the image stays centered */
+  transition: transform 1s ease;
 }
-
 
 .category img:hover {
-    transform: scale(1.1); /* Zooms in the image */
+  transform: scale(1.1); /* Zooms in the image */
 }
-
 
 .category p {
-    padding-top: 5px;
-    font-size: 0.7rem;
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background-color: #333;
+  padding-top: 5px;
+  font-size: 0.7rem;
+  margin-bottom: 20px;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .category {
-        flex: 1 1 calc(50% - 40px); /* Adjust for medium screens */
-    }
+  .category {
+    flex: 1 1 calc(50% - 40px); /* Adjust for medium screens */
+  }
 }
 
 @media (max-width: 768px) {
-    .category {
-        flex: 1 1 calc(100% - 40px); /* Allow items to be smaller but still side by side */
-    }
+  .category {
+    flex: 1 1 calc(100% - 40px); /* Allow items to be smaller but still side by side */
+  }
 }
 
 @media (max-width: 480px) {
-    .categories {
-        flex-wrap: nowrap; /* Prevent wrapping */
-    }
+  .categories {
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
 
-    .category {
-        flex: 0 0 auto; /* Keep items fixed width */
-        width: 80%; /* Adjust size */
-        margin-right: 20px; /* Add some space between items */
-    }
+  .category {
+    flex: 0 0 auto; /* Keep items fixed width */
+    width: 80%; /* Adjust size */
+    margin-right: 20px; /* Add some space between items */
+  }
 
-    /* Create a horizontal scrolling slideshow */
-    .categories {
-        display: flex;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-    }
+  /* Create a horizontal scrolling slideshow */
+  .categories {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
 
-    .category img {
-        max-height: 300px; /* Limit image height on smaller screens */
-        object-fit: cover; /* Ensure image fits within the box */
-    }
+  .category img {
+    max-height: 300px; /* Limit image height on smaller screens */
+    object-fit: cover; /* Ensure image fits within the box */
+  }
 }
-
