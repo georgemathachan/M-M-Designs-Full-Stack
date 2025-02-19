@@ -14,7 +14,22 @@
     top: 0;
     left: 0;
     width: 100%;
-    backdrop-filter: blur(10px); /* Optional: Adds a blur effect behind the navbar */
+    
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+
+.navlogo img {
+    width: 60px
 }
 
 nav {
@@ -35,11 +50,11 @@ nav ul li {
 a {
     font-weight: 50;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 nav ul li a img {
-    color: black
+    color: white
 }
 
 .container {
@@ -52,9 +67,18 @@ nav ul li a img {
 .icon {
     width: 30px;
     height: 30px;
-    fill: black; /* Change color */
+    fill: white; /* Change color */
 }
 
 .icon:hover {
     fill: red; /* Change color on hover */
 }
+
+.navbar.scrolled {
+    background-color: white; /* White background when scrolled */
+    color: #333; /* Dark text for readability */
+  }
+  
+  .navbar.scrolled ul li a {
+    color: #333; /* Dark text for links */
+  }
