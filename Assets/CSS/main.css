@@ -242,6 +242,8 @@ button {
 .slideshow-container {
   scrollbar-width: none; /* Hides scrollbar in Firefox */
   -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer/Edge */
+  margin: 0 40px;
+  width: calc(100% - 80px);
 }
 
 .slideshow-container::-webkit-scrollbar {
@@ -426,3 +428,4 @@ button {
         max-width: 100%; /* Full width for small screens */
     }
 }
+

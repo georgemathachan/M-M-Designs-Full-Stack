@@ -4,24 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mockup Homepage</title>
+
+    <!-- CSS Files -->
     <link rel="stylesheet" href="../Assets/CSS/navbar.css" />
     <link rel="stylesheet" href="../Assets/CSS/footer.css" />
     <link rel="stylesheet" href="../Assets/CSS/main.css" />
+
+    <!-- Google Material Symbols (Corrected) -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_basket"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=favorite"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
   </head>
 
@@ -30,14 +22,16 @@
     <div class="container">
       <div class="navbar">
         <div class="navlogo">
-          <img src="../Assets/Images/Logo.png" width="40px" />
+          <a href="../Pages/home.html">
+            <img src="../Assets/Images/Logo.png" width="40px" />
+          </a>
         </div>
 
         <nav class="nav-buttons">
           <ul>
-            <li><a href="index.html">MEN</a></li>
-            <li><a href="about.html">WOMEN</a></li>
-            <li><a href="products.html">KIDS</a></li>
+            <li><a href="../Pages/ProductPage.html">MEN</a></li>
+            <li><a href="../Pages/ProductPage.html">WOMEN</a></li>
+            <li><a href="../Pages/ProductPage.html">KIDS</a></li>
             <li>
               <a href="basket.html">
                 <span class="material-symbols-outlined"> shopping_basket </span>
@@ -70,42 +64,59 @@
       <p>Discover premium products designed just for you.</p>
       <div class="buttons">
         <button class="button-dark">
-          <a href="">VIEW COLLECTION</a>
+          <a href="./ProductPage.html">VIEW COLLECTION</a>
         </button>
-        <button class="button-light"><a href="">SHOP ALL</a></button>
+        <button class="button-light">
+          <a href="./ProductPage.html">SHOP ALL</a>
+        </button>
       </div>
     </section>
-
+    <section class="navbar-spacer"></section>
     <section class="content-break">
       <h1>DISCOVER</h1>
       <p>LUXURY, AFFORDABLE, SOUTH INDIAN CLOTHING</p>
     </section>
-
+    <section class="navbar-spacer"></section>
+    <section class="navbar-spacer"></section>
+    <section class="navbar-spacer"></section>
+    <section class="navbar-spacer"></section>
     <!-- Categories Section -->
     <section class="categories">
       <div class="category luxe">
-        <img src="../Assets/Images/women-clothing.jpg" alt="Women's Clothing" />
-        <button class="button-light">
-          <a href="">SHOP WOMEN</a>
-        </button>
+        <a href="./ProductPage.html">
+          <img
+            src="../Assets/Images/women-clothing.jpg"
+            alt="Women's Clothing"
+          />
+        </a>
+        <a href="./ProductPage.html">
+          <button class="button-light">SHOP WOMEN</button>
+        </a>
         <p>Discover elegant and modern styles for every occasion.</p>
       </div>
+
       <div class="category everyday">
-        <img src="../Assets/Images/mens-clothing.jpg" alt="Men's Clothing" />
-        <button class="button-light">
-          <a href="">SHOP MEN</a>
-        </button>
+        <a href="./ProductPage.html">
+          <img src="../Assets/Images/mens-clothing.jpg" alt="Men's Clothing" />
+        </a>
+        <a href="./ProductPage.html">
+          <button class="button-light">SHOP MEN</button>
+        </a>
         <p>Shop for classic and contemporary fashion for men.</p>
       </div>
+
       <div class="category luxe">
-        <img src="../Assets/Images/kids-clothing.jpg" alt="Kids' Clothing" />
-        <button class="button-light">
-          <a href="">SHOP KIDS</a>
-        </button>
+        <a href="./ProductPage.html">
+          <img src="../Assets/Images/kids-clothing.jpg" alt="Kids' Clothing" />
+        </a>
+        <a href="./ProductPage.html">
+          <button class="button-light">SHOP KIDS</button>
+        </a>
         <p>Fun, comfortable, and stylish outfits for kids of all ages.</p>
       </div>
     </section>
-    <section class="content-break"></section>
+
+    <section class="navbar-spacer"></section>
     <section class="content-break">
       <h1>SHOP</h1>
       <p>
@@ -113,60 +124,87 @@
         FOR EVERY STYLE AND OCCASION
       </p>
     </section>
-
+    <section class="navbar-spacer"></section>
     <section class="slideshow-container">
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-1.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Royal Banarasi Silk</p>
-          <p class="product-price">£25 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-3.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Handwoven Kanchipuram Silk</p>
-          <p class="product-price">$30 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-4.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Pure Chikankari Cotton</p>
-          <p class="product-price">£15 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-5.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Premium Linen Blend</p>
-          <p class="product-price">£13 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-7.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Embroidered Georgette</p>
-          <p class="product-price">£18 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
       <div class="slide fade">
         <div class="image-container">
-          <img src="../Assets/Images/slide-8.jpeg" alt="" />
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
         </div>
         <div class="product-info">
-          <p class="product-title">Embroidered Georgette</p>
-          <p class="product-price">£28 per square metre</p>
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
+        </div>
+      </div>
+      <div class="slide fade">
+        <div class="image-container">
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
+        </div>
+        <div class="product-info">
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
+        </div>
+      </div>
+      <div class="slide fade">
+        <div class="image-container">
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
+        </div>
+        <div class="product-info">
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
+        </div>
+      </div>
+      <div class="slide fade">
+        <div class="image-container">
+          <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
+        </div>
+        <div class="product-info">
+          <p class="product-title">Product Title</p>
+          <p class="product-price">£XX.XX</p>
         </div>
       </div>
     </section>
@@ -174,30 +212,35 @@
     <div class="categories">
       <!-- Luxe Section -->
       <div class="category luxe">
-        <img src="../Assets/Images/luxe-image.jpg" alt="" />
+        <a href="./ProductPage.html">
+          <img src="../Assets/Images/luxe-image.jpg" alt="" />
+        </a>
         <h2>LUXE</h2>
         <p>
           Indulge in timeless elegance with our premium collection of high-end
           fashion, crafted from the finest materials for a sophisticated look.
         </p>
-        <button class="button-light">
-          <a href="">EXPLORE LUXURY</a>
-        </button>
+        <a href="./ProductPage.html">
+          <button class="button-light">EXPLORE LUXURY</button>
+        </a>
       </div>
-
+    
       <!-- Everyday Section -->
       <div class="category everyday">
-        <img src="../Assets/Images/everyday-image.jpg" alt="" />
+        <a href="./ProductPage.html">
+          <img src="../Assets/Images/everyday-image.jpg" alt="" />
+        </a>
         <h2>EVERYDAY</h2>
         <p>
           Discover affordable style that never compromises on quality. Trendy,
           comfortable, and budget-friendly essentials for your daily wardrobe.
         </p>
-        <button class="button-light">
-          <a href="">SHOP EVERYDAY WEAR</a>
-        </button>
+        <a href="./ProductPage.html">
+          <button class="button-light">SHOP EVERYDAY WEAR</button>
+        </a>
       </div>
     </div>
+    
     <script src="../js/main.js"></script>
   </body>
 
