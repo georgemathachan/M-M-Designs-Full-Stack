@@ -429,3 +429,187 @@ button {
     }
 }
 
+/* Product Details Section */
+.product-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Product Gallery */
+.product-gallery {
+    flex: 1;
+    max-width: 500px;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.thumbnail-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover,
+.thumbnail:focus {
+    border-color: black;
+}
+
+/* Product Info */
+.product-info {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #3D3D3D;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #666;
+}
+
+hr {
+    margin: 15px 0;
+    border: none;
+    height: 1px;
+    background: #ccc;
+}
+
+/* Product Options */
+.product-options {
+    margin-top: 20px;
+}
+
+.option-group {
+    margin-bottom: 15px;
+}
+
+.option-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3D3D3D;
+    margin-bottom: 8px;
+}
+
+.option-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.option-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.option-circle:hover {
+    border-color: black;
+}
+
+/* Purchase Section */
+.purchase-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quantity-selector input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-to-cart {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-to-cart:hover {
+    background: #444;
+}
+
+/* Wishlist */
+.wishlist {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    color: #3D3D3D;
+    cursor: pointer;
+}
+
+.wishlist span {
+    font-size: 14px;
+}
+
+.product-description {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.description-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.description-toggle {
+    width: 100%;
+    padding: 15px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.plus-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.description-content {
+    display: none;
+    padding: 0 15px 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+.description-item.active .description-content {
+    display: block;
+}
+
+.description-item.active .plus-icon {
+    transform: rotate(45deg);
+}

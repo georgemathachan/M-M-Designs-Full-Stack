@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../Assets/CSS/navbar.css" />
+    <link rel="stylesheet" href="../Assets/CSS/footer.css" />
+    <link rel="stylesheet" href="../Assets/CSS/main.css" />
+
+    <!-- Google Material Symbols -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container">
+      <div class="navbar">
+        <div class="navlogo">
+          <a href="../Pages/home.html">
+            <img src="../Assets/Images/Logo.png" width="40px" />
+          </a>
+        </div>
+        <nav class="nav-buttons">
+          <ul>
+            <li><a href="../Pages/ProductPage.html">MEN</a></li>
+            <li><a href="../Pages/ProductPage.html">WOMEN</a></li>
+            <li><a href="../Pages/ProductPage.html">KIDS</a></li>
+            <li>
+              <a href="basket.html"
+                ><span class="material-symbols-outlined"
+                  >shopping_basket</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="search.html"
+                ><span class="material-symbols-outlined">search</span></a
+              >
+            </li>
+            <li>
+              <a href="wishlist.html"
+                ><span class="material-symbols-outlined">favorite</span></a
+              >
+            </li>
+            <li>
+              <a href="profile.html"
+                ><span class="material-symbols-outlined"
+                  >account_circle</span
+                ></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="navbar-spacer"></div>
+
+    <!-- Product Details -->
+    <section class="product-container">
+      <div class="product-gallery">
+        <img
+          class="main-image"
+          src="../Assets/Images/product-image-placeholder.jpg"
+        />
+        <div class="thumbnail-row">
+          <img
+            class="thumbnail"
+            src="../Assets/Images/product-image-placeholder.jpg"
+          />
+          <img
+            class="thumbnail"
+            src="../Assets/Images/product-image-placeholder.jpg"
+          />
+          <img
+            class="thumbnail"
+            src="../Assets/Images/product-image-placeholder.jpg"
+          />
+          <img
+            class="thumbnail"
+            src="../Assets/Images/product-image-placeholder.jpg"
+          />
+        </div>
+      </div>
+      <div class="product-info">
+        <h1 class="product-title">Product Title</h1>
+        <p class="product-price">£XX.XX</p>
+        <hr />
+
+        <div class="product-options">
+          <div class="option-group">
+            <h3 class="option-title">Colour</h3>
+            <div class="option-buttons">
+              <div
+                class="option-circle"
+                style="background-color: #d9c4a1"
+              ></div>
+              <div
+                class="option-circle"
+                style="background-color: #2d2d2d"
+              ></div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3 class="option-title">Material</h3>
+            <div class="option-buttons">
+              <div
+                class="option-circle"
+                style="background-color: #c2b8a3"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="purchase-section">
+          <div class="quantity-selector">
+            <input type="number" value="1" min="1" />
+          </div>
+          <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="wishlist">
+          <span class="material-symbols-outlined">favorite_border</span>
+          <span>ADD TO WISHLIST</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-description">
+        <div class="description-item">
+            <button class="description-toggle">
+                Details <span class="plus-icon">+</span>
+            </button>
+            <div class="description-content">
+                <p>Lovely jubbly outift</p>
+            </div>
+        </div>
+        <div class="description-item">
+            <button class="description-toggle">
+                Care and materials <span class="plus-icon">+</span>
+            </button>
+            <div class="description-content">
+                <p>You know what to do</p>
+            </div>
+        </div>
+        <div class="description-item">
+            <button class="description-toggle">
+                Delivery <span class="plus-icon">+</span>
+            </button>
+            <div class="description-content">
+                <p>Delivery times vary based on location. Estimated delivery within 5-7 business days.</p>
+            </div>
+        </div>
+    
+        <div class="description-item">
+            <button class="description-toggle">
+                Exchange & Returns <span class="plus-icon">+</span>
+            </button>
+            <div class="description-content">
+                <p>Returns accepted within 30 days. Items must be unused and in original packaging.</p>
+            </div>
+        </div>
+    
+        <div class="description-item">
+            <button class="description-toggle">
+                Sourcing & Materials <span class="plus-icon">+</span>
+            </button>
+            <div class="description-content">
+                <p>Made from sustainable, high-quality materials sourced responsibly.</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <section class="content-break">
+      <h1>CUSTOMERS ALSO VIEWED</h1>
+    </section>
+    <section class="product-row">
+      <div class="product-card">
+        <a href="./ProductDetailPage.html" class="product-link">
+          <div class="product-image">
+            <img src="../Assets/Images/product-image-placeholder.jpg" />
+            <div class="product-label">AVAILABLE NOW</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Product Name</h3>
+            <p class="product-price">£XX.XX</p>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="./ProductDetailPage.html" class="product-link">
+          <div class="product-image">
+            <img src="../Assets/Images/product-image-placeholder.jpg" />
+            <div class="product-label">AVAILABLE NOW</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Product Name</h3>
+            <p class="product-price">£XX.XX</p>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="./ProductDetailPage.html" class="product-link">
+          <div class="product-image">
+            <img src="../Assets/Images/product-image-placeholder.jpg" />
+            <div class="product-label">AVAILABLE NOW</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Product Name</h3>
+            <p class="product-price">£XX.XX</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
