@@ -24,6 +24,31 @@ body {
   line-height: 1.6;
 }
 
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img {
+    max-width: 100%;
+    padding: 50px 0;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -745,9 +770,25 @@ form a {
     transition: transform 1s;
 }
 
+.col-2 p {
+    padding-left: 40px;
+    padding-right: 40px;
+}
 
+.col-2 h1 {
+    padding-left: 40px;
+    padding-right: 40px;
+}
 
+.col-2 .button-light {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
 
+.col-2 img {
+    width: 50vw;
+}
 
 
 
