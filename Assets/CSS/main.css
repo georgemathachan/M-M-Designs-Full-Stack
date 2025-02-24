@@ -248,7 +248,6 @@ button {
   overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
   -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
   width: 100vw;
-  overflow:hidden;
 }
 
 .category {
