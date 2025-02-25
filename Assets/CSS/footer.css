@@ -4,5 +4,50 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 0.9em;
-    color: #666;
+    color: #36454f;
+    background-color: #e8e3d9
+}
+
+.footer {
+    background-color: #222; /* Dark background */
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px; /* Prevents columns from becoming too small */
+    margin: 10px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.footer-column ul li a {
+    color: #36454f;
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    color: white;
 }
