@@ -1,5 +1,14 @@
 //general scipts for page interactions (loading animations, global event listeners)
 
+
+fetch('http://localhost:5000/api/products')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Render products on the frontend
+  })
+  .catch(error => console.error('Error fetching products:', error));
+
 // Get the navbar element
 const navbar = document.querySelector(".navbar");
 
