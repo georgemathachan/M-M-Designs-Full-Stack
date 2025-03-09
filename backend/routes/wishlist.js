@@ -1,0 +1,1 @@
+// Handles /wishlist API endpoints
