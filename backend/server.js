@@ -56,3 +56,14 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/Pages", "home.html"));
 });
+
+
+const productRoutes = require('./routes/products');
+const wishlistRoutes = require('./routes/wishlist');
+const userRoutes = require('./routes/users');
+const orderRoutes = require('./routes/orders');
+
+app.use('/products', productRoutes);
+app.use('/wishlist', wishlistRoutes);
+app.use('/users', userRoutes);
+app.use('/orders', orderRoutes);

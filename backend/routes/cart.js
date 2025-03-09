@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require('../models/cart.js');
+const fs = require('fs');
+const path = require('path');
 
 // Get cart for a user
 router.get('/:userId', async (req, res) => {
@@ -38,5 +40,32 @@ router.post('/:userId', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+
+// Retrieve users orders
+router.get('/:userId', (req, res) => {
+  const userId = req.params.userId;
+  fs.readFile(path.join(__dirname, '../data/orders.json'), 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Failed to read orders data' });
+    const orders = JSON.parse(data);
+    const userOrders = orders.filter(o => o.userId === userId);
+    res.json(userOrders);
+  });
+});
+
+// create an order
+router.post('/', (req, res) => {
+  const newOrder = req.body;
+  fs.readFile(path.join(__dirname, '../data/orders.json'), 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Failed to read orders data' });
+    const orders = JSON.parse(data);
+    orders.push(newOrder);
+    fs.writeFile(path.join(__dirname, '../data/orders.json'), JSON.stringify(orders, null, 2), err => {
+      if (err) return res.status(500).json({ error: 'Failed to create order' });
+      res.status(201).json(newOrder);
+    });
+  });
+});
+
 
 module.exports = router;
