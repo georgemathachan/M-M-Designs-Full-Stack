@@ -1,0 +1,17 @@
+[
+    {
+      "userId": "1",
+      "productIds": ["1", "2"],
+      "total": 69.98,
+      "status": "pending",
+      "createdAt": "2025-03-09T10:00:00Z"
+    },
+    {
+      "userId": "2",
+      "productIds": ["3"],
+      "total": 29.99,
+      "status": "shipped",
+      "createdAt": "2025-03-08T15:30:00Z"
+    }
+  ]
+  

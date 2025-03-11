@@ -1,0 +1,175 @@
+[
+    {
+      "id": "1",
+      "name": "Navy Blue Silk Men's Kurta Set",
+      "category": "men’s-clothing",
+      "price": 319,
+      "description": "Elevate your style for any festive gathering with this striking navy blue men's kurta pajama ensemble. Crafted from luxurious silk fabric, it features exquisite lace work along with a navy blue banarasi silk jacket that has resham thread and sequins work. The Chinese collar and full sleeves offer a stylish touch, while the bottom made of silk fabric completes the look. This kurta pajama can be customized from 34-60 inches.",
+      "imageUrl": "../public/assets/images/1.png",
+      "stock": 100
+    },
+    {
+      "id": "2",
+      "name": "Plain Silk Black Jacket Style Men's Sherwani",
+      "category": "men’s-clothing",
+      "price": 389,
+      "description": "Plain Silk Black Jacket Style Men's Sherwani for festive wear.",
+      "imageUrl": "../public/assets/images/2.png",
+      "stock": 100
+    },
+    {
+      "id": "3",
+      "name": "Zari Embroidered Modal Satin Light Beige Men Sherwani With Dupatta",
+      "category": "men’s-clothing",
+      "price": 299,
+      "description": "This exquisite light beige men's sherwani is perfect for weddings, festivals, or as a guest of wedding wear. It is made with high-quality materials, including modal satin for the sherwani, dupion silk for the bottom, and georgette for the dupatta. The sherwani features intricate resham thread and zari work, adding a touch of elegance and sophistication to the overall design. The dupatta is adorned with lace, sequins, and zari work, completing the look. The Chinese collar and full sleeves provide a traditional and regal feel. This sherwani can be customized up to the maximum size of 68 inches, ensuring a perfect fit for any occasion.",
+      "imageUrl": "../public/assets/images/3.png",
+      "stock": 100
+    },
+    {
+      "id": "4",
+      "name": "Velvet Black Embroidered Men's Dhoti Style Sherwani",
+      "category": "men’s-clothing",
+      "price": 849,
+      "description": "Elevate your style for any festive gathering with this striking black men's dhoti-style sherwani ensemble. Crafted from velvet fabric, it boasts intricate resham thread work that enhances its timeless charm. The collar and full sleeves offer a stylish touch, while the bottom is made of silk fabric. The accompanying dupatta is made from silk and features delicate resham thread work to complete the look. This dhoti style sherwani can be customized up to 68 inches.",
+      "imageUrl": "../public/assets/images/4.png",
+      "stock": 100
+    },
+    {
+      "id": "5",
+      "name": "Woven Jacquard Navy Blue Men Sherwani",
+      "category": "men’s-clothing",
+      "price": 139,
+      "description": "Woven Jacquard Navy Blue Men Sherwani",
+      "imageUrl": "../public/assets/images/5.png",
+      "stock": 100
+    },
+    {
+      "id": "6",
+      "name": "Peacock Blue Silk Men's Sherwani With Embroidered Jacket",
+      "category": "men’s-clothing",
+      "price": 284,
+      "description": "This exquisite men's jacket style sherwani in a rich peacock blue color is the epitome of timeless elegance, perfect for festive occasions. Crafted from silk fabric. The jacket is adorned with intricate resham thread and zari work. The Chinese collar and full sleeves offer a stylish touch, while the bottom made of silk fabric completes the look. It can be customized to fit individuals up to 68 inches in size, ensuring a perfect fit for any body type.",
+      "imageUrl": "../public/assets/images/6.png",
+      "stock": 100
+    },
+    {
+      "id": "7",
+      "name": "Peacock Green Soft Silk Embroidered Flared Style Lehenga",
+      "category": "women’s-clothing",
+      "price": 149,
+      "description": "Created specifically for fashion elites, this peacock green soft silk lehenga will keep you comfortable and easy on the eye at the next social function. This v-neck and full-sleeve long choli is embroidered with zari and sequins work. Available with soft silk lehenga in peacock green color with peacock green soft silk dupatta. Lehenga has sequins and zari work. Dupatta adorned with lace work. This lehenga with long choli can be customized up to the maximum size available in inches 68. Slight color variation may occur due to photographic reasons.",
+      "imageUrl": "../public/assets/images/7.png",
+      "stock": 50
+    },
+    {
+      "id": "8",
+      "name": "Dark Green Georgette Embroidered A Line Lehenga",
+      "category": "women’s-clothing",
+      "price": 89,
+      "description": "Bright and appealing, this dark green georgette lehenga will make you ready to make a statement on the upcoming occasion.",
+      "imageUrl": "../public/assets/images/8.png",
+      "stock": 50
+    },
+    {
+      "id": "9",
+      "name": "Silk Deep Red Zari Embroidered Panelled Style Lehenga",
+      "category": "women’s-clothing",
+      "price": 449,
+      "description": "Be the cynosure of all eyes by wearing this deep red silk lehenga which will give a very sassy look.",
+      "imageUrl": "../public/assets/images/9.png",
+      "stock": 50
+    },
+    {
+      "id": "10",
+      "name": "Rose Pink Net Sequins embroidered Flared Style Lehenga",
+      "category": "women’s-clothing",
+      "price": 1067,
+      "description": "Elegance and charm is what you will exude once you get this rose pink net lehenga which will make you ready to make a statement in the upcoming occasion.",
+      "imageUrl": "../public/assets/images/10.png",
+      "stock": 50
+    },
+    {
+      "id": "11",
+      "name": "Carrot Orange Soft Silk Embroidered Flared Style Lehenga",
+      "category": "women’s-clothing",
+      "price": 149,
+      "description": "Created specifically for fashion elites, this soft silk lehenga in carrot orange will keep you comfortable and easy on the eye at the next social function.",
+      "imageUrl": "../public/assets/images/11.png",
+      "stock": 50
+    },
+    {
+      "id": "12",
+      "name": "Sage Green Net Sequins Embroidered Fancy Eid Saree",
+      "category": "women’s-clothing",
+      "price": 599,
+      "description": "This sage green net saree comprises an elegant ethnic look.",
+      "imageUrl": "../public/assets/images/12.png",
+      "stock": 50
+    },
+    {
+      "id": "13",
+      "name": "Wine Maroon Georgette Embroidered Light Weight Saree",
+      "category": "women’s-clothing",
+      "price": 69,
+      "description": "Specifically designed to add a contemporary appeal to your ethnic look, this wine maroon georgette saree which will add oodles of charm to your special ethnic look.",
+      "imageUrl": "../public/assets/images/13.png",
+      "stock": 50
+    },
+    {
+      "id": "14",
+      "name": "Black Embroidered Sleeveless Frill Top And Pleated Lehenga",
+      "category": "kids-clothing",
+      "price": 89,
+      "description": "Black strappy top with frill detailing on the armhole",
+      "imageUrl": "../public/assets/images/14.png",
+      "stock": 200
+    },
+    {
+      "id": "15",
+      "name": "Off White Embroidered And Embellished Kurti",
+      "category": "kids-clothing",
+      "price": 38,
+      "description": "Off white kurti with faux mirror work, sequins and chikankari work all over",
+      "imageUrl": "../public/assets/images/15.png",
+      "stock": 200
+    },
+    {
+      "id": "16",
+      "name": "Green Dual Tone Embroidered Sleeves High Low Kurti",
+      "category": "kids-clothing",
+      "price": 35,
+      "description": "Dual tone high low style kurti",
+      "imageUrl": "../public/assets/images/16.png",
+      "stock": 200
+    },
+    {
+      "id": "17",
+      "name": "Blue Floral Printed Kurta With Front Open Jacket And Pyjama",
+      "category": "kids-clothing",
+      "price": 61,
+      "description": "Blue floral printed kurta and jacket",
+      "imageUrl": "../public/assets/images/17.png",
+      "stock": 200
+    },
+    {
+      "id": "18",
+      "name": "Green Kurta With Printed Jacket And Pyjama",
+      "category": "kids-clothing",
+      "price": 70,
+      "description": "Plain green kurta with a mandarin collar",
+      "imageUrl": "../public/assets/images/18.png",
+      "stock": 200
+    },
+    {
+      "id": "19",
+      "name": "Red Printed Kurta And Pyjama",
+      "category": "kids-clothing",
+      "price": 33,
+      "description": "Red printed kurta with mandarin collar",
+      "imageUrl": "../public/assets/images/19.png",
+      "stock": 200
+    }
+    
+  ]
+  
