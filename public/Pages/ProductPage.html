@@ -63,44 +63,35 @@
       <h1>ALL PRODUCTS</h1>
       <p>discover all products here</p>
     </section>
-    <section class="product-row">
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-    </section>
+    <section class="product-row" id="product-list"></section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../data/products.json")
+                .then(response => response.json())
+                .then(products => {
+                    const productList = document.getElementById("product-list");
+                    products.forEach(product => {
+                        const productCard = document.createElement("div");
+                        productCard.classList.add("product-card");
+                        productCard.innerHTML = `
+                            <a href="./ProductDetailPage.html?id=${product.id}" class="product-link">
+                                <div class="product-image">
+                                    <img src="${product.imageUrl}" alt="${product.name}">
+                                    <div class="product-label">AVAILABLE NOW</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">${product.name}</h3>
+                                    <p class="product-price">£${product.price.toFixed(2)}</p>
+                                </div>
+                            </a>
+                        `;
+                        productList.appendChild(productCard);
+                    });
+                })
+                .catch(error => console.error("Error loading products:", error));
+        });
+    </script>
     <section class="product-row">
       <div class="product-card">
         <a href="./ProductDetailPage.html" class="product-link">

@@ -37,4 +37,5 @@ router.post('/:userId', (req, res) => {
       });
     });
   });
-  
+
+module.exports = router;
