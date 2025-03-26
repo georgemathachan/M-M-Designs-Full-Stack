@@ -1,7 +1,7 @@
 // General scripts for page interactions (loading animations, global event listeners)
 
 // Fetch products from the backend
-fetch("http://localhost:5000/data/products.json")
+fetch("http://localhost:3000/data/products.json")
   .then((response) => response.json())
   .then((data) => {
     console.log("Fetched products:", data);
