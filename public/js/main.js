@@ -680,6 +680,40 @@ function loadContent(page, category = "all") {
     </section>
       `;
       break;
+      case "account":
+      html = `
+      <div class="account-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
+          </div>
+          <div class="col-2">
+            <div class="form-container">
+              <div class="form-btn">
+                <span>Login</span>
+                <span>Sign Up</span> 
+                <hr id="indicator">
+              </div>
+              <form id="login">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button class="button-light">Login</button>
+                <a href="">Forgot password</a>
+              </form>
+              <form id="register">
+                <input type="text" placeholder="First name">
+                <input type="text" placeholder="Last name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button class="button-light">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      `;
     default:
       html = `
         <h1>Page not found</h1>
