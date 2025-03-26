@@ -18,6 +18,7 @@ if (!process.env.MONGO_URI) {
 app.use(cors());
 app.use(express.json()); // Replaces body-parser
 app.use(bodyParser.json());
+app.use(express.static('public')); // Ensure the 'public' directory contains your assets
 
 // Connect to MongoDB
 mongoose
@@ -47,5 +48,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/Pages/index.html"));
 });
 
+app.use("/data", express.static(path.join(__dirname, "data")));
+
+
+app.get("/data/products.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data/products.json"));
+});
+
 // Start Server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(5000, () => console.log(`Server running on port 5000`));
