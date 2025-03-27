@@ -28,22 +28,29 @@ window.addEventListener("scroll", () => {
 // Select all description toggle buttons
 const descriptionToggles = document.querySelectorAll(".description-toggle");
 
-descriptionToggles.forEach(button => {
-    button.addEventListener("click", function () {
-        const content = this.nextElementSibling; // Get the next element (description-content)
-        const icon = this.querySelector(".plus-icon"); // Get the + icon
+descriptionToggles.forEach((button) => {
+  button.addEventListener("click", function () {
+    const content = this.nextElementSibling; // Get the next element (description-content)
+    const icon = this.querySelector(".plus-icon"); // Get the + icon
 
-        // Toggle visibility
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            icon.textContent = "+"; // Change back to plus icon
-        } else {
-            content.style.display = "block";
-            icon.textContent = "−"; // Change to minus icon when open
-        }
-    });
+    // Toggle visibility
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      icon.textContent = "+"; // Change back to plus icon
+    } else {
+      content.style.display = "block";
+      icon.textContent = "−"; // Change to minus icon when open
+    }
+  });
 });
 
+//for the description on product detail page
+document.querySelectorAll(".description-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+    item.classList.toggle("active");
+  });
+});
 
 // Dynamically load content
 const data = {
@@ -72,6 +79,7 @@ const data = {
 
 // Function to load content dynamically
 function loadContent(page, category = "all") {
+  console.log("Loading content for", page, category);
   const content = document.getElementById("content");
   let html = "";
 
@@ -680,7 +688,7 @@ function loadContent(page, category = "all") {
     </section>
       `;
       break;
-      case "account":
+    case "account":
       html = `
       <div class="account-page">
       <div class="container">
@@ -691,21 +699,21 @@ function loadContent(page, category = "all") {
           <div class="col-2">
             <div class="form-container">
               <div class="form-btn">
-                <span>Login</span>
-                <span>Sign Up</span> 
+                <span onclick="login()">Login</span>
+                <span onclick="register()">Sign Up</span> 
                 <hr id="indicator">
               </div>
               <form id="login">
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
                 <button class="button-light">Login</button>
                 <a href="">Forgot password</a>
               </form>
               <form id="register">
-                <input type="text" placeholder="First name">
-                <input type="text" placeholder="Last name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" name="firstName" placeholder="First name">
+                <input type="text" name="lastName" placeholder="Last name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
                 <button class="button-light">Sign Up</button>
               </form>
             </div>
@@ -714,6 +722,7 @@ function loadContent(page, category = "all") {
       </div>
     </div>
       `;
+      break;
     default:
       html = `
         <h1>Page not found</h1>
@@ -721,7 +730,85 @@ function loadContent(page, category = "all") {
       `;
   }
 
+  // Inside your loadContent() function, after setting the innerHTML:
   content.innerHTML = html;
+
+  // If the account page was loaded, attach event listeners to the login and register forms.
+  if (page === "account") {
+    // Use a short timeout to ensure the DOM is updated (or wrap in a function call after setting innerHTML)
+    setTimeout(() => {
+      // Login form handling
+      const loginForm = document.getElementById("login");
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          // If you didn't add name attributes, you can select inputs by their placeholder text:
+          const email = loginForm.querySelector(
+            'input[placeholder="Email"]'
+          ).value;
+          const password = loginForm.querySelector(
+            'input[placeholder="Password"]'
+          ).value;
+
+          try {
+            const response = await fetch("/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password }),
+            });
+            if (response.ok) {
+              alert("Logged in successfully!");
+              // Optionally, redirect or reload the page
+            } else {
+              const errorData = await response.json();
+              alert("Login failed: " + errorData.message);
+            }
+          } catch (error) {
+            console.error("Login error:", error);
+          }
+        });
+      }
+
+      // Register form handling
+      const registerForm = document.getElementById("register");
+      if (registerForm) {
+        registerForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          // Again, select inputs by placeholder or, preferably, by name attributes if you add them.
+          const firstName = registerForm.querySelector(
+            'input[placeholder="First name"]'
+          ).value;
+          const lastName = registerForm.querySelector(
+            'input[placeholder="Last name"]'
+          ).value;
+          const email = registerForm.querySelector(
+            'input[placeholder="Email"]'
+          ).value;
+          const password = registerForm.querySelector(
+            'input[placeholder="Password"]'
+          ).value;
+          const name = firstName + " " + lastName;
+
+          try {
+            const response = await fetch("/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, password }),
+            });
+            if (response.ok) {
+              alert("Registered successfully! Please log in.");
+              // Optionally, switch to the login view or redirect to /login
+            } else {
+              const errorData = await response.json();
+              alert("Registration failed: " + errorData.message);
+            }
+          } catch (error) {
+            console.error("Registration error:", error);
+          }
+        });
+      }
+    }, 100);
+  }
 
   // Call loadProducts if on product page
   if (page === "productpage") {
@@ -733,7 +820,7 @@ function loadContent(page, category = "all") {
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    const page = e.target.getAttribute("href").substring(1);
+    const page = e.currentTarget.getAttribute("href").substring(1);
     loadContent(page);
   });
 });
@@ -752,6 +839,7 @@ function handleNavigation(e) {
   let params = new URLSearchParams(href.split("?")[1]); // Extract query parameters
   let category = params.get("category") || "all"; // Default to "all"
 
+  console.log("Navigating to page:", page);
   loadContent(page, category);
   history.pushState({ page, category }, "", `#${page}?category=${category}`);
 }
@@ -772,3 +860,35 @@ window.addEventListener("popstate", (e) => {
     loadContent("home");
   }
 });
+
+function register() {
+  const registerForm = document.getElementById("register");
+  const loginForm = document.getElementById("login");
+  const indicator = document.getElementById("indicator");
+
+  // Check if elements exist
+  if (!registerForm || !loginForm || !indicator) {
+    console.error("One or more elements not found.");
+    return;
+  }
+
+  registerForm.style.transform = "translateX(0px)";
+  loginForm.style.transform = "translateX(0px)";
+  indicator.style.transform = "translateX(100px)";
+}
+
+function login() {
+  const registerForm = document.getElementById("register");
+  const loginForm = document.getElementById("login");
+  const indicator = document.getElementById("indicator");
+
+  if (!registerForm || !loginForm || !indicator) {
+    console.error("One or more elements not found.");
+    return;
+  }
+
+  registerForm.style.transform = "translateX(300px)";
+  loginForm.style.transform = "translateX(300px)";
+  indicator.style.transform = "translateX(0px)";
+}
+
