@@ -1,7 +1,7 @@
 // General scripts for page interactions (loading animations, global event listeners)
 
 // Fetch products from the backend
-fetch("http://localhost:3000/data/products.json")
+fetch("http://localhost:5000/data/products.json")
   .then((response) => response.json())
   .then((data) => {
     console.log("Fetched products:", data);
@@ -78,8 +78,8 @@ const data = {
 };
 
 // Function to load content dynamically
-function loadContent(page, category = "all") {
-  console.log("Loading content for", page, category);
+function loadContent(page, category = "all", productId = null) {
+  console.log("Loading content for", page, category, productId);
   const content = document.getElementById("content");
   let html = "";
 
@@ -474,227 +474,200 @@ function loadContent(page, category = "all") {
           <section class="product-row"></section>
         `;
       break;
-
-    case "cart":
-      html = `
-      <section class="navbar-spacer"></section>
-          <div class="small-container cart-page">
-      <table>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
-        </tr>
-        <tr>
-          <td>
-            <div class="cart-info">
-              <img
-                src="../Assets/Images/product-image-placeholder.jpg"
-                alt="Product"
-              />
-              <div>
-                <p>Product Name</p>
-                <small>Price: £XX.XX</small>
-                <a href="">Remove</a>
-              </div>
-            </div>
-          </td>
-
-          <td><input type="number" value="1" /></td>
-          <td>£XX.XX</td>
-        </tr>
-      </table>
-      <div class="total-price">
+      case "productdetailpage":
+        if (productId && window.products) {
+          let product = window.products.find(p => p.id == productId);
+          if (!product) {
+            html = `<h2>Product Not Found</h2>`;
+          } else {
+            html = `
+              <section class="navbar-spacer"></section>
+              <section class="product-container">
+                <div class="product-gallery">
+                  <img class="main-image" src="${product.image}" alt="${product.name}" />
+                  <div class="thumbnail-row">
+                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
+                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
+                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
+                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
+                  </div>
+                </div>
+                <div class="product-info">
+                  <h1 class="product-title">${product.name}</h1>
+                  <p class="product-price">£${product.price.toFixed(2)}</p>
+                  <hr />
+                  <div class="product-options">
+                    <div class="option-group">
+                      <h3 class="option-title">Colour</h3>
+                      <div class="option-buttons">
+                        <div class="option-circle" style="background-color: #d9c4a1"></div>
+                        <div class="option-circle" style="background-color: #2d2d2d"></div>
+                      </div>
+                    </div>
+                    <div class="option-group">
+                      <h3 class="option-title">Material</h3>
+                      <div class="option-buttons">
+                        <div class="option-circle" style="background-color: #c2b8a3"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="purchase-section">
+                    <div class="quantity-selector">
+                      <input type="number" value="1" min="1" />
+                    </div>
+                    <button class="button-dark">ADD TO CART</button>
+                  </div>
+                  <div class="wishlist">
+                    <span class="material-symbols-outlined">favorite_border</span>
+                    <span>ADD TO WISHLIST</span>
+                  </div>
+                </div>
+              </section>
+              <section class="product-description">
+                <div class="description-item">
+                  <button class="description-toggle">
+                    Details <span class="plus-icon">+</span>
+                  </button>
+                  <div class="description-content">
+                    <p>Lovely jubbly outfit</p>
+                  </div>
+                </div>
+                <div class="description-item">
+                  <button class="description-toggle">
+                    Care and materials <span class="plus-icon">+</span>
+                  </button>
+                  <div class="description-content">
+                    <p>You know what to do</p>
+                  </div>
+                </div>
+                <div class="description-item">
+                  <button class="description-toggle">
+                    Delivery <span class="plus-icon">+</span>
+                  </button>
+                  <div class="description-content">
+                    <p>Delivery times vary based on location. Estimated delivery within 5-7 business days.</p>
+                  </div>
+                </div>
+                <div class="description-item">
+                  <button class="description-toggle">
+                    Exchange & Returns <span class="plus-icon">+</span>
+                  </button>
+                  <div class="description-content">
+                    <p>Returns accepted within 30 days. Items must be unused and in original packaging.</p>
+                  </div>
+                </div>
+                <div class="description-item">
+                  <button class="description-toggle">
+                    Sourcing & Materials <span class="plus-icon">+</span>
+                  </button>
+                  <div class="description-content">
+                    <p>Made from sustainable, high-quality materials sourced responsibly.</p>
+                  </div>
+                </div>
+              </section>
+              <section class="content-break">
+                <h1>CUSTOMERS ALSO VIEWED</h1>
+              </section>
+              <section class="product-row">
+                <div class="product-card">
+                  <a href="./ProductDetailPage.html" class="product-link">
+                    <div class="product-image">
+                      <img src="../Assets/Images/product-image-placeholder.jpg" />
+                      <div class="product-label">AVAILABLE NOW</div>
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">Product Name</h3>
+                      <p class="product-price">£XX.XX</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="product-card">
+                  <a href="./ProductDetailPage.html" class="product-link">
+                    <div class="product-image">
+                      <img src="../Assets/Images/product-image-placeholder.jpg" />
+                      <div class="product-label">AVAILABLE NOW</div>
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">Product Name</h3>
+                      <p class="product-price">£XX.XX</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="product-card">
+                  <a href="./ProductDetailPage.html" class="product-link">
+                    <div class="product-image">
+                      <img src="../Assets/Images/product-image-placeholder.jpg" />
+                      <div class="product-label">AVAILABLE NOW</div>
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-title">Product Name</h3>
+                      <p class="product-price">£XX.XX</p>
+                    </div>
+                  </a>
+                </div>
+              </section>
+            `;
+          }
+        }
+        break;
+      
+        case "cart":
+        html = `
+        <section class="navbar-spacer"></section>
+            <div class="small-container cart-page">
         <table>
-            <tr>
-                <td>Subtotal</td>
-                <td>£XX.XX</td>
-            </tr>
-            <tr>
-                <td>Tax</td>
-                <td>£XX.XX</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>£XX.XX</td>
-            </tr>
-    
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+          <tr>
+            <td>
+              <div class="cart-info">
+                <img
+                  src="../Assets/Images/product-image-placeholder.jpg"
+                  alt="Product"
+                />
+                <div>
+                  <p>Product Name</p>
+                  <small>Price: £XX.XX</small>
+                  <a href="">Remove</a>
+                </div>
+              </div>
+            </td>
+  
+            <td><input type="number" value="1" /></td>
+            <td>£XX.XX</td>
+          </tr>
         </table>
-      </div>
-    </div>
-      `;
-      break;
-    case "productdetailpage":
-      html = `
-      <section class="navbar-spacer"></section>
-      <section class="product-container">
-      <div class="product-gallery">
-        <img
-          class="main-image"
-          src="../Assets/Images/product-image-placeholder.jpg"
-        />
-        <div class="thumbnail-row">
-          <img
-            class="thumbnail"
-            src="../Assets/Images/product-image-placeholder.jpg"
-          />
-          <img
-            class="thumbnail"
-            src="../Assets/Images/product-image-placeholder.jpg"
-          />
-          <img
-            class="thumbnail"
-            src="../Assets/Images/product-image-placeholder.jpg"
-          />
-          <img
-            class="thumbnail"
-            src="../Assets/Images/product-image-placeholder.jpg"
-          />
+        <div class="total-price">
+          <table>
+              <tr>
+                  <td>Subtotal</td>
+                  <td>£XX.XX</td>
+              </tr>
+              <tr>
+                  <td>Tax</td>
+                  <td>£XX.XX</td>
+              </tr>
+              <tr>
+                  <td>Total</td>
+                  <td>£XX.XX</td>
+              </tr>
+      
+          </table>
         </div>
       </div>
-      <div class="product-info">
-        <h1 class="product-title">Product Title</h1>
-        <p class="product-price">£XX.XX</p>
-        <hr />
+        `;
+        break;
 
-        <div class="product-options">
-          <div class="option-group">
-            <h3 class="option-title">Colour</h3>
-            <div class="option-buttons">
-              <div
-                class="option-circle"
-                style="background-color: #d9c4a1"
-              ></div>
-              <div
-                class="option-circle"
-                style="background-color: #2d2d2d"
-              ></div>
-            </div>
-          </div>
-
-          <div class="option-group">
-            <h3 class="option-title">Material</h3>
-            <div class="option-buttons">
-              <div
-                class="option-circle"
-                style="background-color: #c2b8a3"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="purchase-section">
-          <div class="quantity-selector">
-            <input type="number" value="1" min="1" />
-          </div>
-          <button class="button-dark">ADD TO CART</button>
-        </div>
-
-        <div class="wishlist">
-          <span class="material-symbols-outlined">favorite_border</span>
-          <span>ADD TO WISHLIST</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-description">
-        <div class="description-item">
-            <button class="description-toggle">
-                Details <span class="plus-icon">+</span>
-            </button>
-            <div class="description-content">
-                <p>Lovely jubbly outift</p>
-            </div>
-        </div>
-        <div class="description-item">
-            <button class="description-toggle">
-                Care and materials <span class="plus-icon">+</span>
-            </button>
-            <div class="description-content">
-                <p>You know what to do</p>
-            </div>
-        </div>
-        <div class="description-item">
-            <button class="description-toggle">
-                Delivery <span class="plus-icon">+</span>
-            </button>
-            <div class="description-content">
-                <p>Delivery times vary based on location. Estimated delivery within 5-7 business days.</p>
-            </div>
-        </div>
-    
-        <div class="description-item">
-            <button class="description-toggle">
-                Exchange & Returns <span class="plus-icon">+</span>
-            </button>
-            <div class="description-content">
-                <p>Returns accepted within 30 days. Items must be unused and in original packaging.</p>
-            </div>
-        </div>
-    
-        <div class="description-item">
-            <button class="description-toggle">
-                Sourcing & Materials <span class="plus-icon">+</span>
-            </button>
-            <div class="description-content">
-                <p>Made from sustainable, high-quality materials sourced responsibly.</p>
-            </div>
-        </div>
-    </section>
-    
-
-
-
-    <section class="content-break">
-      <h1>CUSTOMERS ALSO VIEWED</h1>
-    </section>
-    <section class="product-row">
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-      <div class="product-card">
-        <a href="./ProductDetailPage.html" class="product-link">
-          <div class="product-image">
-            <img src="../Assets/Images/product-image-placeholder.jpg" />
-            <div class="product-label">AVAILABLE NOW</div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Product Name</h3>
-            <p class="product-price">£XX.XX</p>
-          </div>
-        </a>
-      </div>
-    </section>
-      `;
-      break;
     case "account":
       html = `
       <div class="account-page">
       <div class="container">
         <div class="row">
           <div class="col-2">
-            <img src="../Assets/Images/product-image-placeholder.jpg" alt="" />
+            <img src="../Assets/Images/download.jpeg" alt="" />
           </div>
           <div class="col-2">
             <div class="form-container">
@@ -835,13 +808,38 @@ function handleNavigation(e) {
   e.preventDefault();
   const href = this.getAttribute("href").substring(1);
 
-  let page = href.split("?")[0]; // Extract page name
-  let params = new URLSearchParams(href.split("?")[1]); // Extract query parameters
-  let category = params.get("category") || "all"; // Default to "all"
+  let [page, queryString] = href.split("?"); // Extract page name and query string
+  let params = new URLSearchParams(queryString); // Extract query parameters
 
-  console.log("Navigating to page:", page);
-  loadContent(page, category);
-  history.pushState({ page, category }, "", `#${page}?category=${category}`);
+  // Only get category if on "productpage"
+  let category =
+    page.includes("productpage") && params.has("category")
+      ? params.get("category")
+      : null;
+  let productId =
+    page.includes("productdetailpage") && params.has("id")
+      ? params.get("id")
+      : null;
+  // Construct the new URL without "category=null"
+  let newUrl = `#${page}`;
+  if (category) {
+    newUrl += `?category=${category}`;
+  } else if (productId) {
+    newUrl += `?id=${productId}`;
+  }
+
+  console.log(
+    "Navigating to:",
+    page,
+    "Category:",
+    category,
+    "Product ID:",
+    productId
+  );
+  loadContent(page, category, productId), "", newUrl;
+
+  // Update browser history
+  history.pushState({ page, category, productId }, "", newUrl);
 }
 
 // Attach event listener to all links with hash-based navigation
@@ -891,4 +889,3 @@ function login() {
   loginForm.style.transform = "translateX(300px)";
   indicator.style.transform = "translateX(0px)";
 }
-

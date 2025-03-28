@@ -1,17 +1,22 @@
 [
-    {
-      "id": "1",
-      "name": "Alice",
-      "email": "alice@example.com",
-      "password": "hashed_password",
-      "address": "123 Main St, Springfield"
-    },
-    {
-      "id": "2",
-      "name": "Bob",
-      "email": "bob@example.com",
-      "password": "hashed_password",
-      "address": "456 Elm St, Springfield"
-    }
-  ]
-  
+  {
+    "id": "1",
+    "firstname": "Alice",
+    "lastname": "Smith",
+    "email": "alice@example.com",
+    "password": "hashed_password"
+  },
+  {
+    "id": "2",
+    "firstname": "Bob",
+    "lastname": "Johnson",
+    "email": "bob@example.com",
+    "password": "hashed_password"
+  },
+  {
+    "id": "3",
+    "name": "undefined undefined",
+    "email": "gmathachan18@gmail.com",
+    "password": "$2b$10$WIh20zS8i1ET/QuXgkX1JevR2j.T8LZCJnb0ilHcGVYxVZVv2Kffi"
+  }
+]

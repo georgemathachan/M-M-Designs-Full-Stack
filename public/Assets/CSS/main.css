@@ -742,6 +742,7 @@ form .button-light {
   width: 100%;
   border: none;
   cursor: pointer;
+  align-items: center;
 }
 
 form .button-light:focus {
@@ -782,8 +783,9 @@ form a {
 
 .col-2 .button-light {
   margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .col-2 img {
