@@ -35,12 +35,13 @@ app.use(passport.session());
 
 // Load users from JSON file
 const usersFilePath = path.join(__dirname, "data", "users.json");
-let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+global.users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+
 
 // Passport Local Strategy
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    const user = users.find((user) => user.email === email);
+    const user = global.users.find((user) => user.email === email);
     if (!user) {
       return done(null, false, { message: "Incorrect email." });
     }
@@ -53,10 +54,11 @@ passport.use(
   })
 );
 
+
 // Serialize and Deserialize User
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser((id, done) => {
-  const user = users.find((user) => user.id === id);
+  const user = global.users.find((user) => user.id === id);
   done(null, user);
 });
 
@@ -84,7 +86,7 @@ app.post("/register", async (req, res) => {
 
   // Save to JSON file
   fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
+  global.users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
   res.status(201).json({ message: "User registered successfully." });
 });
 
@@ -114,6 +116,16 @@ app.post("/login", (req, res, next) => {
     });
   })(req, res, next);
 });
+
+app.get("/currentuser", (req, res) => {
+  if (req.isAuthenticated()) {
+    // Return user data (you can remove sensitive fields)
+    res.json({ user: req.user });
+  } else {
+    res.status(401).json({ message: "Not authenticated" });
+  }
+});
+
 
 // Import and Use Routes
 const productRoutes = require("./routes/products");

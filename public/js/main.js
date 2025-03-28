@@ -662,6 +662,41 @@ function loadContent(page, category = "all", productId = null) {
         break;
 
     case "account":
+      fetch("/currentuser")
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error("Not authenticated"); 
+        })
+        .then((data) => {
+          const user = data.user;
+          html = `<div class="account-page">
+          <div class="container">
+            <h1>Welcome, ${user.name}</h1>
+            <p>Email: ${user.email}</p>
+            <!-- Add more user information as needed -->
+            <button id="logoutBtn" class="button-light">Log Out</button>
+          </div>
+        </div>
+        `;
+        content.innerHTML = html;
+        document.getElementById("logoutBtn").addEventListener("click", async () => {
+          try {
+            const res = await fetch("/logout", { method: "POST" });
+            if (res.ok) {
+              // Redirect to login page or home page after logout
+              loadContent("account"); // This will now show login/signup form
+            } else {
+              alert("Logout failed.");
+            }
+          } catch (error) {
+            console.error("Logout error:", error);
+          }
+        });
+      })
+      .catch(() => {
+
       html = `
       <div class="account-page">
       <div class="container">
@@ -695,6 +730,8 @@ function loadContent(page, category = "all", productId = null) {
       </div>
     </div>
       `;
+      content.innerHTML = html;
+      });
       break;
     default:
       html = `

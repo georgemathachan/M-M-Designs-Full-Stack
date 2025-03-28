@@ -1,15 +1,13 @@
 [
   {
     "id": "1",
-    "firstname": "Alice",
-    "lastname": "Smith",
+    "name": "Alice Smith",
     "email": "alice@example.com",
     "password": "hashed_password"
   },
   {
     "id": "2",
-    "firstname": "Bob",
-    "lastname": "Johnson",
+    "name": "Bob Johnson",
     "email": "bob@example.com",
     "password": "hashed_password"
   },
@@ -17,6 +15,12 @@
     "id": "3",
     "name": "undefined undefined",
     "email": "gmathachan18@gmail.com",
-    "password": "$2b$10$WIh20zS8i1ET/QuXgkX1JevR2j.T8LZCJnb0ilHcGVYxVZVv2Kffi"
+    "password": "$2b$10$4xUnW.70/8XuFckHDEArHe5jodLYfadTk8A4yZ7fF.j21wo8zoxL."
+  },
+  {
+    "id": "4",
+    "name": "undefined undefined",
+    "email": "p@c.com",
+    "password": "$2b$10$tlLZqN1TbaciFl/S2O6gveQEjL8SYawRUGFgImI9z9KOwqcXjOPHS"
   }
 ]
