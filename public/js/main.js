@@ -25,31 +25,26 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Select all description toggle buttons
-const descriptionToggles = document.querySelectorAll(".description-toggle");
+// Use event delegation to handle dynamically loaded content
+document.addEventListener("click", function (event) {
+  // Check if a description toggle button was clicked
+  const button = event.target.closest(".description-toggle");
+  if (!button) return;
 
-descriptionToggles.forEach((button) => {
-  button.addEventListener("click", function () {
-    const content = this.nextElementSibling; // Get the next element (description-content)
-    const icon = this.querySelector(".plus-icon"); // Get the + icon
+  const content = button.nextElementSibling; // Get the next element (description-content)
+  const icon = button.querySelector(".plus-icon"); // Get the + icon
 
-    // Toggle visibility
-    if (content.style.display === "block") {
-      content.style.display = "none";
-      icon.textContent = "+"; // Change back to plus icon
-    } else {
-      content.style.display = "block";
-      icon.textContent = "−"; // Change to minus icon when open
-    }
-  });
-});
+  // Toggle visibility
+  if (content.style.display === "block") {
+    content.style.display = "none";
+    icon.textContent = "+"; // Change back to plus icon
+  } else {
+    content.style.display = "block";
+    icon.textContent = "−"; // Change to minus icon when open
+  }
 
-//for the description on product detail page
-document.querySelectorAll(".description-toggle").forEach((button) => {
-  button.addEventListener("click", () => {
-    const item = button.parentElement;
-    item.classList.toggle("active");
-  });
+  // Also toggle "active" class on the parent description item
+  button.parentElement.classList.toggle("active");
 });
 
 // Dynamically load content
@@ -474,22 +469,32 @@ function loadContent(page, category = "all", productId = null) {
           <section class="product-row"></section>
         `;
       break;
-      case "productdetailpage":
-        if (productId && window.products) {
-          let product = window.products.find(p => p.id == productId);
-          if (!product) {
-            html = `<h2>Product Not Found</h2>`;
-          } else {
-            html = `
+    case "productdetailpage":
+      if (productId && window.products) {
+        let product = window.products.find((p) => p.id == productId);
+        if (!product) {
+          html = `<h2>Product Not Found</h2>`;
+        } else {
+          html = `
               <section class="navbar-spacer"></section>
               <section class="product-container">
                 <div class="product-gallery">
-                  <img class="main-image" src="${product.image}" alt="${product.name}" />
+                  <img class="main-image" src="${product.image}" alt="${
+            product.name
+          }" />
                   <div class="thumbnail-row">
-                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
-                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
-                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
-                    <img class="thumbnail" src="${product.image}" alt="${product.name}" />
+                    <img class="thumbnail" src="${product.image}" alt="${
+            product.name
+          }" />
+                    <img class="thumbnail" src="${product.image}" alt="${
+            product.name
+          }" />
+                    <img class="thumbnail" src="${product.image}" alt="${
+            product.name
+          }" />
+                    <img class="thumbnail" src="${product.image}" alt="${
+            product.name
+          }" />
                   </div>
                 </div>
                 <div class="product-info">
@@ -517,10 +522,14 @@ function loadContent(page, category = "all", productId = null) {
                     </div>
                     <button class="button-dark">ADD TO CART</button>
                   </div>
+
+                  <section >
                   <div class="wishlist">
                     <span class="material-symbols-outlined">favorite_border</span>
                     <span>ADD TO WISHLIST</span>
                   </div>
+                  </section>
+
                 </div>
               </section>
               <section class="product-description">
@@ -607,12 +616,12 @@ function loadContent(page, category = "all", productId = null) {
                 </div>
               </section>
             `;
-          }
         }
-        break;
-      
-        case "cart":
-        html = `
+      }
+      break;
+
+    case "cart":
+      html = `
         <section class="navbar-spacer"></section>
             <div class="small-container cart-page">
         <table>
@@ -659,7 +668,7 @@ function loadContent(page, category = "all", productId = null) {
         </div>
       </div>
         `;
-        break;
+      break;
 
     case "account":
       fetch("/currentuser")
@@ -667,7 +676,7 @@ function loadContent(page, category = "all", productId = null) {
           if (response.ok) {
             return response.json();
           }
-          throw new Error("Not authenticated"); 
+          throw new Error("Not authenticated");
         })
         .then((data) => {
           const user = data.user;
@@ -680,24 +689,25 @@ function loadContent(page, category = "all", productId = null) {
           </div>
         </div>
         `;
-        content.innerHTML = html;
-        document.getElementById("logoutBtn").addEventListener("click", async () => {
-          try {
-            const res = await fetch("/logout", { method: "POST" });
-            if (res.ok) {
-              // Redirect to login page or home page after logout
-              loadContent("account"); // This will now show login/signup form
-            } else {
-              alert("Logout failed.");
-            }
-          } catch (error) {
-            console.error("Logout error:", error);
-          }
-        });
-      })
-      .catch(() => {
-
-      html = `
+          content.innerHTML = html;
+          document
+            .getElementById("logoutBtn")
+            .addEventListener("click", async () => {
+              try {
+                const res = await fetch("/logout", { method: "POST" });
+                if (res.ok) {
+                  // Redirect to login page or home page after logout
+                  loadContent("account"); // This will now show login/signup form
+                } else {
+                  alert("Logout failed.");
+                }
+              } catch (error) {
+                console.error("Logout error:", error);
+              }
+            });
+        })
+        .catch(() => {
+          html = `
       <div class="account-page">
       <div class="container">
         <div class="row">
@@ -730,8 +740,8 @@ function loadContent(page, category = "all", productId = null) {
       </div>
     </div>
       `;
-      content.innerHTML = html;
-      });
+          content.innerHTML = html;
+        });
       break;
     default:
       html = `
@@ -857,6 +867,7 @@ function handleNavigation(e) {
     page.includes("productdetailpage") && params.has("id")
       ? params.get("id")
       : null;
+
   // Construct the new URL without "category=null"
   let newUrl = `#${page}`;
   if (category) {
@@ -926,3 +937,63 @@ function login() {
   loginForm.style.transform = "translateX(300px)";
   indicator.style.transform = "translateX(0px)";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("click", async (event) => {
+    const wishlistEl = event.target.closest(".wishlist");
+    if (!wishlistEl) return;
+
+    try {
+      // Check if user is logged in
+      const userRes = await fetch("/currentuser");
+      if (!userRes.ok) {
+        alert("Please log in to add products to your wishlist.");
+        window.location.href = "#login"; // Redirect to login page
+        return;
+      }
+
+      const userData = await userRes.json();
+      console.log("User data:", userData);
+      const userId = userData.user?.id;
+      if (!userId) {
+        alert("User ID not found.");
+        return;
+      }
+
+      // Extract product ID from the hash-based URL (e.g., "#productdetailpage?id=2")
+      function getProductId() {
+        const hash = window.location.hash;
+        const params = new URLSearchParams(hash.split("?")[1]);
+        return params.get("id");
+      }
+      const productId = getProductId();
+      if (!productId) {
+        alert("Product ID not found.");
+        return;
+      }
+
+      console.log("Product ID:", productId);
+      console.log("User ID:", userId);
+
+      // Send request to add product to wishlist
+      const addRes = await fetch("/api/wishlist/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId }),
+      });
+
+      if (addRes.ok) {
+        // Update UI to show heart as "filled"
+        wishlistEl.querySelector(".material-symbols-outlined").textContent = "favorite";
+        wishlistEl.classList.add("wishlist-active"); // Add a class for styling
+        alert("Product added to wishlist!");
+      } else {
+        const errorData = await addRes.json();
+        alert("Failed to add product: " + (errorData.message || "Unknown error"));
+      }
+    } catch (err) {
+      console.error("Wishlist error:", err);
+      alert("An error occurred. Please try again later.");
+    }
+  });
+});
